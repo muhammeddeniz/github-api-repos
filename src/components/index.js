@@ -1,2 +1,3 @@
-export { default as Timeline } from "./timeline";
-export { default as Card } from "./card/index";
+export { default as Timeline } from "./timeline/index";
+export { default as Card } from "./card";
+export { default as Input } from "./input";

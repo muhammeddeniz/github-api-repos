@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import { TimelineContainer } from "../container";
-import { Card } from "../components";
+import { Card, Input } from "../components";
 
 function Home() {
   const [data, setData] = useState([]);
@@ -19,14 +19,12 @@ function Home() {
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => {}, []);
-
   return (
     <div>
       {/* data ad ekle  */}
       <Link to="/blog/deneme">Home Page</Link>
 
-      <input type="text" value={val} onChange={(e) => setVal(e.target.value)} />
+      <Input type="text" value={val} onChange={(e) => setVal(e.target.value)} />
       <button onClick={() => getOrgs(val)}>Ara</button>
 
       <Card></Card>
