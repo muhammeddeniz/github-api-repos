@@ -1,11 +1,31 @@
 import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useParams,
+} from "react-router-dom";
 
-function App() {
+import { HomePage } from "./pages";
+function BlogPost() {
+  let { slug } = useParams();
+  return <div>Now showing post {slug}</div>;
+}
+export default function App() {
   return (
-    <div className="App">
-      <h1>!</h1>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route path="/blog/:slug">
+          <BlogPost />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
-export default App;
+function About() {
+  return <h2>About</h2>;
+}
