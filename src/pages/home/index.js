@@ -9,10 +9,13 @@ import "./home.css";
 
 function Home() {
   const [data, setData] = useState();
+  const [isUser, setIsUser] = useState(false);
   const [val, setVal] = useState("");
 
   const getOrg = (name) => {
-    const url = `https://api.github.com/orgs/${name}`;
+    const url = isUser
+      ? `https://api.github.com/users/${name}`
+      : `https://api.github.com/orgs/${name}`;
 
     axios
       .get(url)
@@ -22,12 +25,15 @@ function Home() {
 
   return (
     <div>
+      {isUser ? "Kullanici" : "Organizasyon"}
+      <button onClick={() => setIsUser((item) => !item)}>Degistir</button>
       <div className="home__search">
         <Input
           type="text"
           value={val}
           onChange={(e) => setVal(e.target.value)}
         />
+
         <span className="home__search__space"></span>
 
         <Button onClick={() => getOrg(val)}>Ara</Button>

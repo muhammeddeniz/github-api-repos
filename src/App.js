@@ -6,7 +6,7 @@ import {
   useParams,
 } from "react-router-dom";
 
-import { HomePage, DetailPage } from "./pages";
+import { HomePage, DetailPage, UserDetail } from "./pages";
 
 import "./normalize.css";
 
@@ -19,6 +19,10 @@ const App = () => {
         </Route>
         <Route path="/orgs/:id">
           <DetailPage />
+        </Route>
+
+        <Route path="/users/:id">
+          <UserDetail />
         </Route>
       </Switch>
     </Router>

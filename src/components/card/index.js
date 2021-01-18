@@ -6,19 +6,23 @@ import { Link } from "react-router-dom";
 
 import "./card.css";
 
-const Card = ({ item, link }) => {
+const Card = ({ item, isUser }) => {
   return item ? (
     <div className="card">
       <div className="left">
-        <img
-          className="left_img"
-          src="https://avatars0.githubusercontent.com/u/13857072?v=4"
-        ></img>
+        <img className="left_img" src={item.avatar_url}></img>
       </div>
 
       <div className="right">
         <div className="right__header">
-          <Link className="right__header__title" to={`/orgs/${item.login}`}>
+          <Link
+            className="right__header__title"
+            to={
+              item.type == "User"
+                ? `/users/${item.login}`
+                : `/orgs/${item.login}`
+            }
+          >
             {item.name}
           </Link>
           <p className="right__header__nick">@{item.login}</p>
