@@ -10,83 +10,75 @@ import CodeIcon from "@material-ui/icons/Code";
 
 import "react-vertical-timeline-component/style.min.css";
 
-const Timeline = ({ data }) => {
+const Timeline = ({ item }) => {
   return (
     <VerticalTimeline>
-      {/* <VerticalTimelineElement
+      <VerticalTimelineElement
+        key={item.id}
         className="vertical-timeline-element--work"
-        contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-        contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
-        date="2011 - present"
-        iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-        icon={<></>}
+        date={item.created_at}
+        contentArrowStyle={{
+          borderRight: item.fork
+            ? "7px solid rgb(233, 30, 99)"
+            : "7px solid rgb(33, 150, 243)",
+        }}
+        contentStyle={{
+          background: item.fork ? "rgb(233, 30, 99)" : "rgb(33, 150, 243)",
+          color: "#fff",
+        }}
+        iconStyle={{
+          background: item.fork ? "rgb(233, 30, 99)" : "rgb(33, 150, 243)",
+          color: "#111",
+        }}
+        icon={
+          item.fork ? (
+            <CallSplitIcon fontSize="large" style={{ color: "#fff" }} />
+          ) : (
+            <CodeIcon fontSize="small" style={{ color: "#fff" }} />
+          )
+        }
       >
-        <h3 className="vertical-timeline-element-title">Creative Director</h3>
-        <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-        <p>
-          Creative Direction, User Experience, Visual Design, Project
-          Management, Team Leading
-        </p>
-      </VerticalTimelineElement> */}
-
-      {data.map((item, key) => (
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date={item.created_at}
-          iconStyle={{
-            background: item.fork ? "rgb(233, 30, 99)" : "rgb(33, 150, 243)",
-            color: "#111",
-          }}
-          icon={
-            item.fork ? (
-              <CallSplitIcon fontSize="large" style={{ color: "#fff" }} />
-            ) : (
-              <CodeIcon fontSize="small" style={{ color: "#fff" }} />
-            )
-          }
+        <a
+          href={item.html_url}
+          style={{ textDecoration: "none", color: "black", fontSize: 20 }}
         >
-          <a
-            href={item.html_url}
-            style={{ textDecoration: "none", color: "black", fontSize: 20 }}
-          >
-            {item.name}
-          </a>
-          <h4>{item.language}</h4>
-          <p>{item.description}</p>
+          {item.name}
+        </a>
+        <h4>{item.language}</h4>
+        <p>{item.description}</p>
 
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            marginTop: 10,
+          }}
+        >
           <div
             style={{
               display: "flex",
-              alignItems: "flex-start",
-              marginTop: 10,
+              alignItems: "center",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <StarIcon />
-              <span style={{ fontSize: 18, marginLeft: 5 }}>
-                {item.stargazers_count}
-              </span>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginLeft: 20,
-              }}
-            >
-              <CallSplitIcon />
-              <span style={{ fontSize: 18, marginLeft: 5 }}>
-                {item.forks_count}
-              </span>
-            </div>
+            <StarIcon />
+            <span style={{ fontSize: 18, marginLeft: 5 }}>
+              {item.stargazers_count}
+            </span>
           </div>
-        </VerticalTimelineElement>
-      ))}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginLeft: 20,
+            }}
+          >
+            <CallSplitIcon />
+            <span style={{ fontSize: 18, marginLeft: 5 }}>
+              {item.forks_count}
+            </span>
+          </div>
+        </div>
+      </VerticalTimelineElement>
     </VerticalTimeline>
   );
 };

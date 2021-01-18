@@ -2,25 +2,37 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import { Timeline } from "../components";
+import { TimelineContainer } from "../container";
+import { Card } from "../components";
 
-const Home = () => {
-  const [data, setdata] = useState([]);
+function Home() {
+  const [data, setData] = useState([]);
+  const [val, setVal] = useState("");
 
-  useEffect(() => {
+  const getOrgs = (name) => {
+    const url = `https://api.github.com/orgs/${name}`;
+
     axios
-      .get("https://api.github.com/users/muhammeddeniz/repos")
-      .then((res) => setdata(res.data))
+      .get(url)
+      .then((res) => console.log(res.data))
+      //   .then((res) => setData(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  };
+
+  useEffect(() => {}, []);
 
   return (
     <div>
+      {/* data ad ekle  */}
       <Link to="/blog/deneme">Home Page</Link>
 
-      <Timeline data={data} />
+      <input type="text" value={val} onChange={(e) => setVal(e.target.value)} />
+      <button onClick={() => getOrgs(val)}>Ara</button>
+
+      <Card></Card>
+      {/* <TimelineContainer data={data} /> */}
     </div>
   );
-};
+}
 
 export default Home;

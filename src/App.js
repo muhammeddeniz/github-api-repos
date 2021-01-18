@@ -8,6 +8,8 @@ import {
 
 import { HomePage, DetailPage } from "./pages";
 
+import "./normalize.css";
+
 const App = () => {
   return (
     <Router>
