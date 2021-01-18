@@ -6,26 +6,21 @@ import {
   useParams,
 } from "react-router-dom";
 
-import { HomePage } from "./pages";
-function BlogPost() {
-  let { slug } = useParams();
-  return <div>Now showing post {slug}</div>;
-}
-export default function App() {
+import { HomePage, DetailPage } from "./pages";
+
+const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
+        <Route exact path={["/", "/home"]}>
           <HomePage />
         </Route>
-        <Route path="/blog/:slug">
-          <BlogPost />
+        <Route path="/orgs/:id">
+          <DetailPage />
         </Route>
       </Switch>
     </Router>
   );
-}
+};
 
-function About() {
-  return <h2>About</h2>;
-}
+export default App;
