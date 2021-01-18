@@ -15,3 +15,29 @@
 
   margin-top: 100px;
 }
+
+.gitLink {
+  display: flex;
+  align-items: center;
+
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  text-decoration: none;
+  color: #000;
+}
+
+.gitLink:hover {
+  text-decoration: underline;
+  color: #147efb;
+}
+
+.gitLink__text {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.gitLink__icon {
+  padding-left: 6px;
+}

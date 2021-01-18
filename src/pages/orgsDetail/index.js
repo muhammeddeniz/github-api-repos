@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import { TimelineContainer } from "../../container";
 
@@ -16,7 +16,12 @@ const Detail = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  return <div>{data.length !== 0 && <TimelineContainer data={data} />}</div>;
+  return (
+    <div>
+      <Link to="/"></Link>
+      {data.length !== 0 && <TimelineContainer data={data} />}
+    </div>
+  );
 };
 
 export default Detail;

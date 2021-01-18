@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 import { TimelineContainer } from "../../container";
-import { Card, Input, Button, Switch } from "../../components";
+import { Card, Input, Button, Switch, AlertBox } from "../../components";
 
 import "./home.css";
 
@@ -11,6 +12,7 @@ function Home() {
   const [data, setData] = useState();
   const [isUser, setIsUser] = useState(false);
   const [val, setVal] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
 
   const getOrg = (name) => {
     const url = isUser
@@ -21,10 +23,20 @@ function Home() {
       .get(url)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
+
+    setIsSearching(true);
   };
 
   return (
     <div>
+      <a
+        className="gitLink"
+        href="https://github.com/muhammeddeniz/github-api-repos"
+      >
+        <p className="gitLink__text">Source Code</p>
+        <GitHubIcon className="gitLink__icon"></GitHubIcon>
+      </a>
+
       <div className="home__search">
         <Input
           type="text"
@@ -41,9 +53,13 @@ function Home() {
         <Button onClick={() => getOrg(val)}>Ara</Button>
       </div>
 
-      <div className="card__side">
-        <Card item={data} />
-      </div>
+      {data ? (
+        <div className="card__side">
+          <Card item={data} />
+        </div>
+      ) : isSearching ? (
+        <AlertBox />
+      ) : null}
     </div>
   );
 }

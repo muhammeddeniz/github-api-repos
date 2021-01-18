@@ -1,9 +1,37 @@
-.link {
+.timeline__container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.timeline__container__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timeline__container__header__left {
+  display: flex;
+  align-items: center;
+}
+
+.timeline__container__header__link {
   text-decoration: none;
   font-size: 22px;
   color: #000;
+  margin-left: 10px;
 }
 
-.link:hover {
+.timeline__container__header__link:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+  .timeline__container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }

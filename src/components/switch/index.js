@@ -22,6 +22,7 @@ const Switch = ({ isUser, setIsUser }) => {
       >
         Kullanici
       </button>
+
       <button
         className={buttonRightClass}
         onClick={() => {
