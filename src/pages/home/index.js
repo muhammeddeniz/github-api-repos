@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import { TimelineContainer } from "../../container";
-import { Card, Input, Button } from "../../components";
+import { Card, Input, Button, Switch } from "../../components";
 
 import "./home.css";
 
@@ -25,14 +25,16 @@ function Home() {
 
   return (
     <div>
-      {isUser ? "Kullanici" : "Organizasyon"}
-      <button onClick={() => setIsUser((item) => !item)}>Degistir</button>
       <div className="home__search">
         <Input
           type="text"
           value={val}
           onChange={(e) => setVal(e.target.value)}
         />
+
+        <span className="home__search__space"></span>
+
+        <Switch isUser={isUser} setIsUser={setIsUser} />
 
         <span className="home__search__space"></span>
 

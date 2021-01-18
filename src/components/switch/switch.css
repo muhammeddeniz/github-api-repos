@@ -1,0 +1,29 @@
+.switch__container {
+}
+
+.switch__button__normal {
+  border: 2px solid #147efb;
+  font-size: 16px;
+  padding: 5px 20px;
+
+  border-right-width: 2px;
+  border-right-color: #147efb;
+  user-select: none;
+  outline: none;
+  background: #fff;
+  cursor: pointer;
+}
+
+.switch__button__active {
+  border: 2px solid #147efb;
+  font-size: 16px;
+  padding: 5px 20px;
+
+  border-left-width: 0;
+  user-select: none;
+  outline: none;
+
+  background: #147efb;
+  color: #fff;
+  cursor: pointer;
+}
