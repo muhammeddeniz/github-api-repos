@@ -1,6 +1,8 @@
 .home__search {
   display: flex;
   justify-content: center;
+
+  margin-top: 40px;
 }
 
 .home__search__space {

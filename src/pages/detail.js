@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useParams } from "react-router-dom";
 
+import { TimelineContainer } from "../container";
+
 const Detail = () => {
+  const [data, setData] = useState([]);
+
   let { id } = useParams();
 
-  return <div> post {id}</div>;
+  useEffect(() => {
+    axios
+      .get(`https://api.github.com/orgs/${id}/repos`)
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  return <div>{data.length !== 0 && <TimelineContainer data={data} />}</div>;
 };
 
 export default Detail;

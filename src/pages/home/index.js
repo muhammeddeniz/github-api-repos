@@ -11,16 +11,6 @@ function Home() {
   const [data, setData] = useState();
   const [val, setVal] = useState("");
 
-  const getOrgs = (name) => {
-    const url = `https://api.github.com/orgs/${name}`;
-
-    axios
-      .get(url)
-      .then((res) => console.log(res.data))
-      //   .then((res) => setData(res.data))
-      .catch((err) => console.log(err));
-  };
-
   const getOrg = (name) => {
     const url = `https://api.github.com/orgs/${name}`;
 
@@ -46,7 +36,6 @@ function Home() {
       <div className="card__side">
         <Card item={data} />
       </div>
-      {/* <TimelineContainer data={data} /> */}
     </div>
   );
 }
