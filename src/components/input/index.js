@@ -7,7 +7,9 @@ const Input = ({ ...restProps }) => {
   return (
     <div className="input__container">
       <div className="input__container__icon">
-        <SearchRoundedIcon></SearchRoundedIcon>
+        <SearchRoundedIcon
+          style={{ color: "#147efb", marginLeft: 6 }}
+        ></SearchRoundedIcon>
       </div>
       <input className="inputComponent" {...restProps}></input>
     </div>

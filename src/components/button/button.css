@@ -1,0 +1,17 @@
+.btn__component {
+  font-size: 20px;
+  padding: 5px 10px;
+  border: 0px;
+
+  border-radius: 4px;
+  cursor: pointer;
+
+  outline: none;
+
+  background: #147efb;
+  color: white;
+}
+
+.btn__component:hover {
+  background: #0860c4;
+}

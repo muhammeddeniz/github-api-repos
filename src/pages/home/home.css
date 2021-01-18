@@ -1,0 +1,15 @@
+.home__search {
+  display: flex;
+  justify-content: center;
+}
+
+.home__search__space {
+  margin-left: 10px;
+}
+
+.card__side {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 100px;
+}
