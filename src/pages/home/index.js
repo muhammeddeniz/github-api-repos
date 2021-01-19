@@ -12,12 +12,12 @@ function Home() {
   const [val, setVal] = useState("");
   const [isSearching, setIsSearching] = useState(false);
 
-  const getOrg = (name) => {
+  const getData = async (name) => {
     const url = isUser
       ? `https://api.github.com/users/${name}`
       : `https://api.github.com/orgs/${name}`;
 
-    axios
+    await axios
       .get(url)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
@@ -40,6 +40,11 @@ function Home() {
           type="text"
           value={val}
           onChange={(e) => setVal(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              getData(val);
+            }
+          }}
         />
 
         <span className="home__search__space"></span>
@@ -48,7 +53,7 @@ function Home() {
 
         <span className="home__search__space"></span>
 
-        <Button onClick={() => getOrg(val)}>Ara</Button>
+        <Button onClick={() => getData(val)}>Ara</Button>
       </div>
 
       {data ? (
