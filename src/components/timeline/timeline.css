@@ -1,0 +1,33 @@
+.timeline__title {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.timeline__title:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.timeline__body {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.timeline__body__counts {
+  display: flex;
+  align-items: center;
+}
+
+.timeline__body__counts2 {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.timeline__span {
+  font-size: 18px;
+  margin-left: 5px;
+}

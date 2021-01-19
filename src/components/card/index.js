@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import LinkRoundedIcon from "@material-ui/icons/LinkRounded";
 import LocationOnRoundedIcon from "@material-ui/icons/LocationOnRounded";
 import MailIcon from "@material-ui/icons/Mail";
-import { Link } from "react-router-dom";
+import LocationCityIcon from "@material-ui/icons/LocationCity";
+import CodeIcon from "@material-ui/icons/Code";
+import StarIcon from "@material-ui/icons/Star";
 
 import "./card.css";
 
@@ -23,7 +27,7 @@ const Card = ({ item, isUser }) => {
                 : `/orgs/${item.login}`
             }
           >
-            {item.name}
+            {item.name || item.login}
           </Link>
           <p className="right__header__nick">@{item.login}</p>
         </div>
@@ -47,14 +51,28 @@ const Card = ({ item, isUser }) => {
             </a>
           </div>
 
-          <div className="right__body__email">
-            <MailIcon style={{ marginRight: 8 }}></MailIcon>
-            <p className="right__body__email__text">{item.email}</p>
-          </div>
+          {item.type === "User" ? (
+            <div className="right__body__company">
+              <LocationCityIcon style={{ marginRight: 8 }}></LocationCityIcon>
+              <a className="right__body__company__text" target="_blank">
+                {item.company}
+              </a>
+            </div>
+          ) : null}
+
+          {item.type !== "User" ? (
+            <div className="right__body__email">
+              <MailIcon style={{ marginRight: 8 }}></MailIcon>
+              <p className="right__body__email__text">{item.email}</p>
+            </div>
+          ) : null}
         </div>
 
         <div className="right__footer">
-          <p className="right__body__type">{item.type}</p>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <CodeIcon></CodeIcon>
+            <p className="right__footer__text">{item.public_repos}</p>
+          </div>
         </div>
       </div>
     </div>

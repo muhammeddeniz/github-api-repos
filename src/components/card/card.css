@@ -14,7 +14,7 @@
 }
 
 .left {
-  margin-right: 20px;
+  margin-right: 50px;
 }
 
 .left_img {
@@ -89,4 +89,20 @@
 
 .right__header__title:hover {
   text-decoration: underline;
+}
+
+.right__footer__text {
+  font-size: 16px;
+
+  margin-left: 5px;
+}
+
+.right__body__company {
+  font-size: 14px;
+  color: rgb(64, 64, 64);
+}
+
+.right__body__company__text {
+  color: #000;
+  text-decoration: none;
 }

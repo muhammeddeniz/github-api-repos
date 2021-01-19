@@ -7,6 +7,8 @@ import CodeIcon from "@material-ui/icons/Code";
 
 import "react-vertical-timeline-component/style.min.css";
 
+import "./timeline.css";
+
 const Timeline = ({ item }) => {
   return (
     <VerticalTimelineElement
@@ -34,44 +36,20 @@ const Timeline = ({ item }) => {
         )
       }
     >
-      <a
-        href={item.html_url}
-        style={{ textDecoration: "none", color: "black", fontSize: 20 }}
-      >
+      <a className="timeline__title" href={item.html_url}>
         {item.name}
       </a>
       <h4>{item.language}</h4>
       <p>{item.description}</p>
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "flex-start",
-          marginTop: 10,
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
+      <div className="timeline__body">
+        <div className="timeline__body__counts">
           <StarIcon />
-          <span style={{ fontSize: 18, marginLeft: 5 }}>
-            {item.stargazers_count}
-          </span>
+          <span className="timeline__span">{item.stargazers_count}</span>
         </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            marginLeft: 20,
-          }}
-        >
+        <div className="timeline__body__counts2">
           <CallSplitIcon />
-          <span style={{ fontSize: 18, marginLeft: 5 }}>
-            {item.forks_count}
-          </span>
+          <span className="timeline__span">{item.forks_count}</span>
         </div>
       </div>
     </VerticalTimelineElement>
