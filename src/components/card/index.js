@@ -13,7 +13,7 @@ const Card = ({ item, isUser }) => {
   return item ? (
     <div className="card">
       <div className="left">
-        <img className="left_img" src={item.avatar_url}></img>
+        <img className="left_img" src={item.avatar_url} alt="logo"></img>
       </div>
 
       <div className="right">
