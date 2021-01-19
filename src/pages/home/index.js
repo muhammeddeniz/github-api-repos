@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
-import { TimelineContainer } from "../../container";
 import { Card, Input, Button, Switch, AlertBox } from "../../components";
 
 import "./home.css";

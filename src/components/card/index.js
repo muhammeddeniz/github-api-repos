@@ -6,7 +6,6 @@ import LocationOnRoundedIcon from "@material-ui/icons/LocationOnRounded";
 import MailIcon from "@material-ui/icons/Mail";
 import LocationCityIcon from "@material-ui/icons/LocationCity";
 import CodeIcon from "@material-ui/icons/Code";
-import StarIcon from "@material-ui/icons/Star";
 
 import "./card.css";
 
@@ -22,7 +21,7 @@ const Card = ({ item, isUser }) => {
           <Link
             className="right__header__title"
             to={
-              item.type == "User"
+              item.type === "User"
                 ? `/users/${item.login}`
                 : `/orgs/${item.login}`
             }
