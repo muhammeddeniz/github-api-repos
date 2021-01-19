@@ -45,6 +45,7 @@ const Card = ({ item, isUser }) => {
               className="right__body__blog__text"
               href={item.blog}
               target="_blank"
+              rel="noreferrer"
             >
               {item.blog}
             </a>
@@ -53,9 +54,8 @@ const Card = ({ item, isUser }) => {
           {item.type === "User" ? (
             <div className="right__body__company">
               <LocationCityIcon style={{ marginRight: 8 }}></LocationCityIcon>
-              <a className="right__body__company__text" target="_blank">
-                {item.company}
-              </a>
+
+              <p className="right__body__company__text">{item.company}</p>
             </div>
           ) : null}
 

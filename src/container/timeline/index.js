@@ -19,6 +19,7 @@ export const TimelineContainer = ({ data }) => {
               className="timeline__container__header__link"
               href={data[0]?.owner?.html_url}
               target="_blank"
+              rel="noreferrer"
             >
               {data[0]?.owner?.login}
             </a>
