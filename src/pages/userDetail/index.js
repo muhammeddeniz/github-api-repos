@@ -10,11 +10,13 @@ const Detail = () => {
   let { id } = useParams();
 
   useEffect(() => {
-    axios
-      .get(`https://api.github.com/users/${id}/repos`)
-      .then((res) => setData(res.data))
-      .catch((err) => console.log(err));
-  }, []);
+    if (id) {
+      axios
+        .get(`https://api.github.com/users/${id}/repos`)
+        .then((res) => setData(res.data))
+        .catch((err) => console.log(err));
+    }
+  }, [id]);
 
   return <div>{data.length !== 0 && <TimelineContainer data={data} />}</div>;
 };
