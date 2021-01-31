@@ -27,13 +27,15 @@ function Home() {
 
   return (
     <div>
-      <a
-        className="gitLink"
-        href="https://github.com/muhammeddeniz/github-api-repos"
-      >
-        <p className="gitLink__text">Source Code</p>
-        <GitHubIcon className="gitLink__icon"></GitHubIcon>
-      </a>
+      <div>
+        <a
+          className="gitLink"
+          href="https://github.com/muhammeddeniz/github-api-repos"
+        >
+          <p className="gitLink__text">Source Code</p>
+          <GitHubIcon className="gitLink__icon"></GitHubIcon>
+        </a>
+      </div>
 
       <div className="home__search">
         <Input

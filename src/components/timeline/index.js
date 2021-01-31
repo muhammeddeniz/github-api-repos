@@ -12,9 +12,8 @@ import "./timeline.css";
 const Timeline = ({ item }) => {
   return (
     <VerticalTimelineElement
-      key={item.id}
       className="vertical-timeline-element--work"
-      date={item.created_at}
+      date={item.created_at.substring(0, 10)}
       contentArrowStyle={{
         borderRight: item.fork
           ? "7px solid rgb(233, 30, 99)"
@@ -22,7 +21,7 @@ const Timeline = ({ item }) => {
       }}
       contentStyle={{
         background: item.fork ? "rgb(233, 30, 99)" : "rgb(33, 150, 243)",
-        color: "#fff",
+        color: "#111",
       }}
       iconStyle={{
         background: item.fork ? "rgb(233, 30, 99)" : "rgb(33, 150, 243)",
@@ -39,16 +38,16 @@ const Timeline = ({ item }) => {
       <a className="timeline__title" href={item.html_url}>
         {item.name}
       </a>
-      <h4>{item.language}</h4>
-      <p>{item.description}</p>
+      <h4 style={{ color: "#fff" }}>{item.language}</h4>
+      <p style={{ color: "#fff" }}>{item.description}</p>
 
       <div className="timeline__body">
         <div className="timeline__body__counts">
-          <StarIcon />
+          <StarIcon style={{ color: "#fff" }} />
           <span className="timeline__span">{item.stargazers_count}</span>
         </div>
         <div className="timeline__body__counts2">
-          <CallSplitIcon />
+          <CallSplitIcon style={{ color: "#fff" }} />
           <span className="timeline__span">{item.forks_count}</span>
         </div>
       </div>

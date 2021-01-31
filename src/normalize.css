@@ -6,3 +6,7 @@
 html {
   font-family: "Noto Sans SC", sans-serif;
 }
+
+*:focus {
+  box-shadow: none !important;
+}

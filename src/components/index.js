@@ -4,3 +4,4 @@ export { default as Input } from "./input";
 export { default as Button } from "./button";
 export { default as Switch } from "./switch";
 export { default as AlertBox } from "./alertBox";
+export { default as UserCard } from "./userCard";
